@@ -1,0 +1,30 @@
+
+{
+  "Application": {
+    "Name": "OLED256654_TouchGFX",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "AvailableColorDepths": [ 4 ],
+    "AvailableLCDs":
+    {
+      "4": "LCD4bpp"
+    },
+    "AvailableResolutions": [
+      {
+        "Width": 256,
+        "Height": 64
+      }
+    ],
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "Family": "STM32F4",
+    "SubFamily": "STM32F401",
+    "Platform": "m4",
+    "Toolchain": "STM32CubeIDE",
+    "ProjectFile": "../OLED256654_TouchGFX.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": [
+    ],
+    "AdditionalFeatures": [
+    ],
+  },
+  "Version": "4.21.0"
+}
