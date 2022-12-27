@@ -82,7 +82,7 @@ void TouchGFXGeneratedHAL::endFrame()
     // We must guard the next frame until we're done transferring all blocks over our display interface
     // through either a semaphore if user is running an OS or a simple variable if not
     // Wait until all blocks have been transmitted
-//    while(touchgfxDisplayDriverTransmitActive()){}
+    while(touchgfxDisplayDriverTransmitActive()){}
 
     HAL::endFrame();
 }
@@ -112,13 +112,13 @@ void TouchGFXGeneratedHAL::flushFrameBuffer(const touchgfx::Rect& rect)
     // Mark it ready for transfer and transmit it if user defined method isTransmittingData() does not return false
     // If data is not being transmitted, transfer the data with user defined method transmitFrameBufferBlock().
     frameBufferAllocator->markBlockReadyForTransfer();
- //   if (!touchgfxDisplayDriverTransmitActive())
+    if (!touchgfxDisplayDriverTransmitActive())
     {
         touchgfx::Rect r;
         // Get pointer to block buffer and coordinates of the rect
         const uint8_t* pixels = frameBufferAllocator->getBlockForTransfer(r);
         // Start transmission of the block
- //       touchgfxDisplayDriverTransmitBlock((uint8_t*)pixels, r.x, r.y, r.width, r.height);
+        touchgfxDisplayDriverTransmitBlock((uint8_t*)pixels, r.x, r.y, r.width, r.height);
     }
 }
 
