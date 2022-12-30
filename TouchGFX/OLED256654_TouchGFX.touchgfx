@@ -2,49 +2,155 @@
   "Application": {
     "Screens": [
       {
-        "Name": "Screen1",
+        "Name": "Main",
         "Components": [
           {
-            "Type": "ButtonWithLabel",
-            "Name": "buttonWithLabel1",
-            "X": 12,
-            "Y": 14,
-            "Width": 100,
-            "Height": 36,
-            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_rounded_pressed.png",
-            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_rounded_normal.png",
-            "TextId": "__SingleUse_P9UB",
-            "ReleasedColor": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "PressedColor": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "TextRotation": "0",
-            "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\tiny_rounded_normal.json"
+            "Type": "TiledImage",
+            "Name": "tiledImage1",
+            "Width": 256,
+            "Height": 64,
+            "FileName": "__generated\\alternate_theme_images_textures_seamless_texture_2.png"
           },
           {
             "Type": "TextArea",
             "Name": "textArea1",
-            "X": 136,
-            "Y": 20,
-            "Width": 93,
-            "Height": 13,
-            "TextId": "__SingleUse_ALFE",
+            "X": 5,
+            "Y": 8,
+            "Width": 246,
+            "Height": 49,
+            "TextId": "__SingleUse_F0TJ",
             "TextRotation": "0",
             "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
+              "Red": 145,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea2",
+            "X": 16,
+            "Y": -76,
+            "Height": 13,
+            "TextId": "__SingleUse_L47D",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 219,
+              "Green": 178,
+              "Blue": 178
             },
             "AutoSize": true
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "To_Screen1_Interaction",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 49
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionCover",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "Screen1"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "Screen1",
+        "CanvasBufferSize": 3840,
+        "Components": [
+          {
+            "Type": "TiledImage",
+            "Name": "tiledImage1",
+            "X": 156,
+            "Width": 100,
+            "Height": 64,
+            "FileName": "__generated\\alternate_theme_images_textures_seamless_texture_3.png",
+            "Alpha": 200
+          },
+          {
+            "Type": "StaticGraph",
+            "Name": "graph1",
+            "Width": 156,
+            "Height": 64,
+            "DataSeed": -1499352745,
+            "NumberOfValues": 100,
+            "MaxX": 100.0,
+            "MinX": -100.0,
+            "PrecisionX": "1",
+            "MaxY": 100.0,
+            "MinY": -100.0,
+            "PrecisionY": "1",
+            "XAxisScale": 1.0,
+            "InsertRandomValues": true,
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "FileNameImage": "",
+                "Color": {
+                  "Red": 20,
+                  "Green": 151,
+                  "Blue": 197
+                }
+              }
+            ],
+            "XAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 18,
+                "Green": 70,
+                "Blue": 87
+              },
+              "Interval": 20.0,
+              "LineWidth": 1
+            },
+            "YAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 18,
+                "Green": 70,
+                "Blue": 87
+              },
+              "Interval": 20.0,
+              "LineWidth": 1
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 156,
+            "Y": 6,
+            "Width": 100,
+            "Height": 52,
+            "TextId": "__SingleUse_KIL9",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 204,
+              "Green": 169,
+              "Blue": 169
+            }
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "To_Main_Screen_Interaction",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 49
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionCover",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Main"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],
@@ -54,7 +160,7 @@
       "Height": 64
     },
     "SelectedColorDepth": 4,
-    "StartupScreenName": "Screen1",
+    "StartupScreenName": "Main",
     "SelectedStartupLanguage": "GB",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
     "UIPath": ".",

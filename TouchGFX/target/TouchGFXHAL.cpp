@@ -23,8 +23,15 @@
 #include <TouchGFXHAL.hpp>
 
 /* USER CODE BEGIN TouchGFXHAL.cpp */
+#include <F401_Buttons.hpp>
+#include <touchgfx/hal/OSWrappers.hpp>
+
+extern "C" void touchgfxDisplayInit(void);
+extern "C" void touchgfxDisplayDriverTransmitBlock(const uint8_t* pixels, uint16_t x, uint16_t y, uint16_t w, uint16_t h);
 
 using namespace touchgfx;
+
+F401ButtonController bc;
 
 /* ******************************************************
  * Functions required by Partial Frame Buffer Strategy
@@ -49,7 +56,9 @@ void TouchGFXHAL::initialize()
     // and implemented needed functionality here.
     // Please note, HAL::initialize() must be called to initialize the framework.
 
+	touchgfxDisplayInit();
     TouchGFXGeneratedHAL::initialize();
+    setButtonController(&bc);
 }
 
 /**
@@ -102,6 +111,8 @@ void TouchGFXHAL::flushFrameBuffer(const touchgfx::Rect& rect)
     // defined in TouchGFXGeneratedHAL.cpp
 
     TouchGFXGeneratedHAL::flushFrameBuffer(rect);
+    OSWrappers::takeFrameBufferSemaphore();
+    touchgfxDisplayDriverTransmitBlock((uint8_t*)frameBuffer0, 0, 0, 256, 64);
 }
 
 bool TouchGFXHAL::blockCopy(void* RESTRICT dest, const void* RESTRICT src, uint32_t numBytes)
@@ -173,6 +184,24 @@ void TouchGFXHAL::endFrame()
     TouchGFXGeneratedHAL::endFrame();
 }
 
+
+extern "C"
+void DisplayDriver_TransferCompleteCallback()
+{
+  // After completed transmission start new transfer if blocks are ready.
+	OSWrappers::giveFrameBufferSemaphore();
+}
+
+
+extern "C"
+void touchgfxSignalVSync(void)
+{
+  /* VSync has occurred, increment TouchGFX engine vsync counter */
+  touchgfx::HAL::getInstance()->vSync();
+
+  /* VSync has occurred, signal TouchGFX engine */
+  touchgfx::OSWrappers::signalVSync();
+}
 /* USER CODE END TouchGFXHAL.cpp */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

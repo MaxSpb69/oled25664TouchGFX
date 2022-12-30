@@ -6,11 +6,14 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_ALFE" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">New Text Example</Translation>
+      <Text Id="__SingleUse_KIL9" Alignment="Center" TypographyId="Small">
+        <Translation Language="GB">Dynamic Graph&#10; sample in OLED&#10; 4bit 256x64 &#10;Display</Translation>
       </Text>
-      <Text Id="__SingleUse_P9UB" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">New Text</Translation>
+      <Text Id="__SingleUse_L47D" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB" />
+      </Text>
+      <Text Id="__SingleUse_F0TJ" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">Main Screen</Translation>
       </Text>
     </TextGroup>
   </Texts>

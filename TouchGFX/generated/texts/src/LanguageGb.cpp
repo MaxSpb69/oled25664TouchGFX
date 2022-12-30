@@ -10,6 +10,7 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE;
 // Remap all strings
 TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
-    0, // T___SINGLEUSE_ALFE: "New Text Example"
-    17 // T___SINGLEUSE_P9UB: "New Text"
+    0,  // T___SINGLEUSE_KIL9: "Dynamic Graph\n sample in OLED\n 4bit 256x64 \nDisplay"
+    51, // T___SINGLEUSE_L47D: ""
+    52  // T___SINGLEUSE_F0TJ: "Main Screen"
 };

@@ -8,7 +8,10 @@
 #include <mvp/View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/ButtonWithLabel.hpp>
+#include <touchgfx/widgets/TiledImage.hpp>
+#include <touchgfx/widgets/graph/Graph.hpp>
+#include <touchgfx/widgets/graph/GraphElements.hpp>
+#include <touchgfx/widgets/canvas/PainterGRAY4.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
@@ -17,6 +20,7 @@ public:
     Screen1ViewBase();
     virtual ~Screen1ViewBase();
     virtual void setupScreen();
+    virtual void handleKeyEvent(uint8_t key);
 
 protected:
     FrontendApplication& application() {
@@ -27,10 +31,21 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::ButtonWithLabel buttonWithLabel1;
+    touchgfx::TiledImage tiledImage1;
+    touchgfx::Graph<100> graph1;
+    touchgfx::GraphElementGridX graph1MajorXAxisGrid;
+    touchgfx::GraphElementGridY graph1MajorYAxisGrid;
+    touchgfx::GraphElementLine graph1Line1;
+    touchgfx::PainterGRAY4 graph1Line1Painter;
     touchgfx::TextArea textArea1;
 
 private:
+
+    /*
+     * Canvas Buffer Size
+     */
+    static const uint32_t CANVAS_BUFFER_SIZE = 3840;
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
 };
 
