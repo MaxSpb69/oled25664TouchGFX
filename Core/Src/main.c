@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "semphr.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,6 +46,7 @@ CRC_HandleTypeDef hcrc;
 SPI_HandleTypeDef hspi1;
 DMA_HandleTypeDef hdma_spi1_tx;
 
+TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim10;
 
 /* Definitions for GUI_Task */
@@ -55,7 +56,14 @@ const osThreadAttr_t GUI_Task_attributes = {
   .stack_size = 2048 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for EncoderSem */
+osSemaphoreId_t EncoderSemHandle;
+const osSemaphoreAttr_t EncoderSem_attributes = {
+  .name = "EncoderSem"
+};
 /* USER CODE BEGIN PV */
+
+int16_t Encoder_count = 0;
 
 /* USER CODE END PV */
 
@@ -66,6 +74,7 @@ static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_TIM10_Init(void);
 static void MX_CRC_Init(void);
+static void MX_TIM4_Init(void);
 void TouchGFX_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
@@ -109,11 +118,15 @@ int main(void)
   MX_SPI1_Init();
   MX_TIM10_Init();
   MX_CRC_Init();
+  MX_TIM4_Init();
   MX_TouchGFX_Init();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
 
+
+  //while(1)
+	//  GetData = (int16_t)__HAL_TIM_GET_COUNTER(&htim4);
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -122,6 +135,10 @@ int main(void)
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
+
+  /* Create the semaphores(s) */
+  /* creation of EncoderSem */
+  EncoderSemHandle = osSemaphoreNew(1, 1, &EncoderSem_attributes);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
@@ -272,6 +289,56 @@ static void MX_SPI1_Init(void)
 }
 
 /**
+  * @brief TIM4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM4_Init(void)
+{
+
+  /* USER CODE BEGIN TIM4_Init 0 */
+
+  /* USER CODE END TIM4_Init 0 */
+
+  TIM_Encoder_InitTypeDef sConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM4_Init 1 */
+
+  /* USER CODE END TIM4_Init 1 */
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 0;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 65535;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
+  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC1Filter = 1;
+  sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC2Filter = 1;
+  if (HAL_TIM_Encoder_Init(&htim4, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM4_Init 2 */
+  HAL_TIM_Encoder_Start_IT(&htim4, TIM_CHANNEL_ALL);
+  //__HAL_TIM_ENABLE_IT(&htim4, TIM_IT_UPDATE);
+  /* USER CODE END TIM4_Init 2 */
+
+}
+
+/**
   * @brief TIM10 Initialization Function
   * @param None
   * @retval None
@@ -371,6 +438,34 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
 	if(htim->Instance == TIM10)
 		touchgfxSignalVSync();
 }
+
+
+
+
+//void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) // Can add your own flags you need in the capture interrupt
+//{
+//	static int16_t prev_data = 0;
+//	static BaseType_t xHigherPriorityTaskWoken;
+//
+//	if(htim->Instance == TIM4)
+//	{
+//		Encoder_count = ((int16_t)__HAL_TIM_GET_COUNTER(&htim4)) / 4;
+//
+//
+//		xSemaphoreGiveFromISR(EncoderSemHandle, xHigherPriorityTaskWoken);
+//		if( xHigherPriorityTaskWoken == pdTRUE )
+//		{
+//	     /* Выдача семафора разблокирует задачу, и приоритет разблокированной
+//	        задачи выше, чем у текущей выполняющейся задачи - поэтому контекст
+//	        выполнения переключается принудительно в разблокированную (с более
+//	        высоким приоритетом) задачу.*/
+//			portYIELD();
+//		}
+//	}
+//}
+
+
+
 
 /* USER CODE END 4 */
 

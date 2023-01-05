@@ -196,6 +196,30 @@
     <Filter Include="Source Files\generated\gui_generated\screen1_screen">
       <UniqueIdentifier>8D3E9E1A-8FCD-1867-7D5A-23E2FC95E875</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\setvalue_screen">
+      <UniqueIdentifier>70BDE3B2-4146-A292-C186-4FEF71AED024</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\setvalue_screen">
+      <UniqueIdentifier>49CAE803-CDCB-1546-DDA2-F02E66383E42</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\setvalue_screen">
+      <UniqueIdentifier>13B4D95A-9DE3-9F96-2426-B7DFF405D07D</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\setvalue_screen">
+      <UniqueIdentifier>09C6F39A-F84F-A96A-3389-80D179FAAAAB</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\submenu1_screen">
+      <UniqueIdentifier>CFAC3559-E5E1-E5E1-A545-99805AA2D8C8</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\submenu1_screen">
+      <UniqueIdentifier>531E63F1-F534-FD1C-F792-7D253F0DBAAB</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\submenu1_screen">
+      <UniqueIdentifier>D60F88F2-4EE5-DC8C-9E43-96A3DAB53FD6</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\submenu1_screen">
+      <UniqueIdentifier>CC0F8B10-2A99-376F-96D8-620285D7D3FF</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -245,6 +269,24 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\screen1_screen\Screen1ViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\screen1_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\setvalue_screen\SetValuePresenter.cpp">
+      <Filter>Source Files\gui\setvalue_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\setvalue_screen\SetValueView.cpp">
+      <Filter>Source Files\gui\setvalue_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\setvalue_screen\SetValueViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\setvalue_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\submenu1_screen\SubMenu1Presenter.cpp">
+      <Filter>Source Files\gui\submenu1_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\submenu1_screen\SubMenu1View.cpp">
+      <Filter>Source Files\gui\submenu1_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\submenu1_screen\SubMenu1ViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\submenu1_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -705,6 +747,24 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen1_screen\Screen1ViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\screen1_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\setvalue_screen\SetValuePresenter.hpp">
+      <Filter>Header Files\gui\setvalue_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\setvalue_screen\SetValueView.hpp">
+      <Filter>Header Files\gui\setvalue_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\setvalue_screen\SetValueViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\setvalue_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\submenu1_screen\SubMenu1Presenter.hpp">
+      <Filter>Header Files\gui\submenu1_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\submenu1_screen\SubMenu1View.hpp">
+      <Filter>Header Files\gui\submenu1_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\submenu1_screen\SubMenu1ViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\submenu1_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -11,8 +11,12 @@
 #include <platform/driver/lcd/LCD4bpp.hpp>
 #include <gui/main_screen/MainView.hpp>
 #include <gui/main_screen/MainPresenter.hpp>
+#include <gui/setvalue_screen/SetValueView.hpp>
+#include <gui/setvalue_screen/SetValuePresenter.hpp>
 #include <gui/screen1_screen/Screen1View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
+#include <gui/submenu1_screen/SubMenu1View.hpp>
+#include <gui/submenu1_screen/SubMenu1Presenter.hpp>
 
 using namespace touchgfx;
 
@@ -55,6 +59,19 @@ void FrontendApplicationBase::gotoMainScreenCoverTransitionEastImpl()
     touchgfx::makeTransition<MainView, MainPresenter, touchgfx::CoverTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
+// SetValue
+
+void FrontendApplicationBase::gotoSetValueScreenCoverTransitionWest()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoSetValueScreenCoverTransitionWestImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoSetValueScreenCoverTransitionWestImpl()
+{
+    touchgfx::makeTransition<SetValueView, SetValuePresenter, touchgfx::CoverTransition<WEST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
 // Screen1
 
 void FrontendApplicationBase::gotoScreen1ScreenCoverTransitionWest()
@@ -66,4 +83,17 @@ void FrontendApplicationBase::gotoScreen1ScreenCoverTransitionWest()
 void FrontendApplicationBase::gotoScreen1ScreenCoverTransitionWestImpl()
 {
     touchgfx::makeTransition<Screen1View, Screen1Presenter, touchgfx::CoverTransition<WEST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// SubMenu1
+
+void FrontendApplicationBase::gotoSubMenu1ScreenCoverTransitionWest()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoSubMenu1ScreenCoverTransitionWestImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoSubMenu1ScreenCoverTransitionWestImpl()
+{
+    touchgfx::makeTransition<SubMenu1View, SubMenu1Presenter, touchgfx::CoverTransition<WEST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

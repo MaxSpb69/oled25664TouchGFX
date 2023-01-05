@@ -5,47 +5,222 @@
         "Name": "Main",
         "Components": [
           {
-            "Type": "TiledImage",
-            "Name": "tiledImage1",
-            "Width": 256,
-            "Height": 64,
-            "FileName": "__generated\\alternate_theme_images_textures_seamless_texture_2.png"
-          },
-          {
             "Type": "TextArea",
-            "Name": "textArea1",
-            "X": 5,
-            "Y": 8,
-            "Width": 246,
-            "Height": 49,
-            "TextId": "__SingleUse_F0TJ",
+            "Name": "Menu_3_TextArea",
+            "X": 166,
+            "Y": 36,
+            "Width": 50,
+            "Height": 18,
+            "TextId": "__SingleUse_ZF8W",
             "TextRotation": "0",
             "Color": {
-              "Red": 145,
-              "Green": 102,
-              "Blue": 102
+              "Red": 240,
+              "Green": 233,
+              "Blue": 233
             },
+            "Alpha": 96,
             "AutoSize": true
           },
           {
             "Type": "TextArea",
-            "Name": "textArea2",
-            "X": 16,
-            "Y": -76,
-            "Height": 13,
-            "TextId": "__SingleUse_L47D",
+            "Name": "Menu_1_TextArea",
+            "X": 17,
+            "Y": 18,
+            "Width": 73,
+            "Height": 18,
+            "TextId": "__SingleUse_UC29",
             "TextRotation": "0",
             "Color": {
-              "Red": 219,
-              "Green": 178,
-              "Blue": 178
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Alpha": 96,
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Menu_2_TextArea",
+            "X": 104,
+            "Y": 27,
+            "Width": 48,
+            "Height": 18,
+            "TextId": "__SingleUse_JJU1",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 240,
+              "Green": 233,
+              "Blue": 233
+            },
+            "Alpha": 96,
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 90,
+            "Width": 76,
+            "Height": 18,
+            "TextId": "__SingleUse_KWM7",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 230,
+              "Green": 172,
+              "Blue": 172
             },
             "AutoSize": true
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "To_Screen1_Interaction",
+            "InteractionName": "MenuSelect_Interaction",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 49
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "MenuSelect"
+            }
+          },
+          {
+            "InteractionName": "MenuNext_Interaction",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 50
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "MenuNext_Step"
+            }
+          },
+          {
+            "InteractionName": "MenuPrev_Interaction",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 51
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "MenuPrev_Step"
+            }
+          },
+          {
+            "InteractionName": "Menu_1_Interaction",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 1
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionCover",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "SetValue"
+            }
+          },
+          {
+            "InteractionName": "Menu_2_Interaction",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 2
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionCover",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "Screen1"
+            }
+          },
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 3
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionCover",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "SubMenu1"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "SetValue",
+        "Components": [
+          {
+            "Type": "TiledImage",
+            "Name": "tiledImage1",
+            "Width": 256,
+            "Height": 64,
+            "FileName": "__generated\\alternate_theme_images_textures_seamless_texture_2.png",
+            "Alpha": 112
+          },
+          {
+            "Type": "ImageProgress",
+            "Name": "imageProgress1",
+            "X": 28,
+            "Width": 200,
+            "Height": 10,
+            "FileNameProgress": "__generated\\alternate_theme_images_widgets_imageprogress_plain_normal_small_action.png",
+            "AnchorAtZero": true,
+            "Direction": "Right",
+            "Preset": "alternate_theme\\presets\\imageprogress\\plain\\normal\\small_action.json",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_imageprogress_plain_normal_small.png",
+            "IndicatorPositionWidth": 200,
+            "IndicatorPositionHeight": 10,
+            "ProgressRangeMax": 100,
+            "ProgressRangeSteps": 100,
+            "ProgressInitialValue": 60
+          },
+          {
+            "Type": "TextProgress",
+            "Name": "textProgress1",
+            "X": 41,
+            "Y": 14,
+            "Width": 175,
+            "Height": 50,
+            "TextId": "__SingleUse_SZ5P",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "FileNameBackground": "__generated\\glass_theme_images_widgets_textprogress_backgrounds_rounded_dark.png",
+            "IndicatorPositionX": 12,
+            "IndicatorPositionWidth": 150,
+            "IndicatorPositionHeight": 41,
+            "ProgressRangeMax": 100,
+            "ProgressRangeSteps": 100,
+            "ProgressInitialValue": 60
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 50
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "ProgressBarIncrement"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 51
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "ProgressBarDecrement"
+            }
+          },
+          {
+            "InteractionName": "ReturnToMainScreen_Interaction",
             "Trigger": {
               "Type": "TriggerPhysicalButtonClicked",
               "ButtonKey": 49
@@ -53,8 +228,8 @@
             "Action": {
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionCover",
-              "ScreenTransitionDirection": "West",
-              "ActionComponent": "Screen1"
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Main"
             }
           }
         ]
@@ -148,6 +323,193 @@
               "ScreenTransitionType": "ScreenTransitionCover",
               "ScreenTransitionDirection": "East",
               "ActionComponent": "Main"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "SubMenu1",
+        "Components": [
+          {
+            "Type": "Container",
+            "Name": "ListMenu_container",
+            "X": 64,
+            "Y": 18,
+            "Width": 64,
+            "Height": 113,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "textArea1",
+                "Width": 64,
+                "Height": 18,
+                "TextId": "__SingleUse_I7DK",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 227,
+                  "Green": 202,
+                  "Blue": 202
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea2",
+                "Y": 18,
+                "Width": 56,
+                "Height": 18,
+                "TextId": "__SingleUse_B1L5",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 242,
+                  "Green": 220,
+                  "Blue": 220
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea3",
+                "Y": 36,
+                "Width": 56,
+                "Height": 18,
+                "TextId": "__SingleUse_HGTA",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 224,
+                  "Green": 197,
+                  "Blue": 197
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea4",
+                "Y": 53,
+                "Width": 56,
+                "Height": 18,
+                "TextId": "__SingleUse_KLH9",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 242,
+                  "Green": 230,
+                  "Blue": 230
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea5",
+                "Y": 71,
+                "Width": 56,
+                "Height": 18,
+                "TextId": "__SingleUse_BFL2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 224,
+                  "Green": 195,
+                  "Blue": 195
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea6",
+                "Y": 89,
+                "Width": 34,
+                "Height": 18,
+                "TextId": "__SingleUse_GL49",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 237,
+                  "Green": 213,
+                  "Blue": 213
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "BoxWithBorder",
+            "Name": "boxWithBorder1",
+            "X": 64,
+            "Y": 18,
+            "Width": 64,
+            "Height": 18,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "BorderColor": {
+              "Red": 255,
+              "Green": 252,
+              "Blue": 252
+            },
+            "BorderSize": 5,
+            "Alpha": 60
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "MenuDown_Interaction",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 50
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "ScrollMenuDown"
+            }
+          },
+          {
+            "InteractionName": "MenuUp_Interaction",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 51
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "ScrollMenuUp"
+            }
+          },
+          {
+            "InteractionName": "MenuScroll_Dumb_Interaction",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 1
+            },
+            "Action": {
+              "Type": "ActionMove",
+              "X": 64,
+              "Easing": "Cubic",
+              "EasingOption": "In",
+              "Duration": 48,
+              "ActionComponent": "ListMenu_container"
+            }
+          },
+          {
+            "InteractionName": "BackToMainScreen_Interaction",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 3
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionCover",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Main"
+            }
+          },
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 49
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "MenuSelect"
             }
           }
         ]

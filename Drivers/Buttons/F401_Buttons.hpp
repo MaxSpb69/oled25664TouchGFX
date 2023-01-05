@@ -18,6 +18,8 @@ class F401ButtonController : public touchgfx::ButtonController
 
 private:
     uint8_t previousState;
+    int16_t Encoder_count;
+    int16_t Prev_Encoder_count;
 };
 
 

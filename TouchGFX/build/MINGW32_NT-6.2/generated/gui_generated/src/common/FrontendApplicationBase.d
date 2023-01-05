@@ -49,11 +49,19 @@ build/MINGW32_NT-6.2/generated/gui_generated/src/common/FrontendApplicationBase.
  gui/include/gui/main_screen/MainPresenter.hpp \
  gui/include/gui/model/ModelListener.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TiledImage.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp \
+ gui/include/gui/setvalue_screen/SetValueView.hpp \
+ generated/gui_generated/include/gui_generated/setvalue_screen/SetValueViewBase.hpp \
+ gui/include/gui/setvalue_screen/SetValuePresenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TiledImage.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/progress_indicators/ImageProgress.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/progress_indicators/AbstractDirectionProgress.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/progress_indicators/AbstractProgressIndicator.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/progress_indicators/TextProgress.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
  gui/include/gui/screen1_screen/Screen1View.hpp \
  generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp \
  gui/include/gui/screen1_screen/Screen1Presenter.hpp \
@@ -75,6 +83,11 @@ build/MINGW32_NT-6.2/generated/gui_generated/src/common/FrontendApplicationBase.
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/lcd/LCD4DebugPrinter.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterGRAY4.hpp \
+ gui/include/gui/submenu1_screen/SubMenu1View.hpp \
+ generated/gui_generated/include/gui_generated/submenu1_screen/SubMenu1ViewBase.hpp \
+ gui/include/gui/submenu1_screen/SubMenu1Presenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/BoxWithBorder.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/MoveAnimator.hpp \
  generated/texts/include/texts/TextKeysAndLanguages.hpp
 
 generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:
@@ -177,15 +190,31 @@ gui/include/gui/model/ModelListener.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:
 
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TiledImage.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:
-
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp:
+
+gui/include/gui/setvalue_screen/SetValueView.hpp:
+
+generated/gui_generated/include/gui_generated/setvalue_screen/SetValueViewBase.hpp:
+
+gui/include/gui/setvalue_screen/SetValuePresenter.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TiledImage.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/progress_indicators/ImageProgress.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/progress_indicators/AbstractDirectionProgress.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/progress_indicators/AbstractProgressIndicator.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/progress_indicators/TextProgress.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
 
 gui/include/gui/screen1_screen/Screen1View.hpp:
 
@@ -228,5 +257,15 @@ gui/include/gui/screen1_screen/Screen1Presenter.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterColor.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterGRAY4.hpp:
+
+gui/include/gui/submenu1_screen/SubMenu1View.hpp:
+
+generated/gui_generated/include/gui_generated/submenu1_screen/SubMenu1ViewBase.hpp:
+
+gui/include/gui/submenu1_screen/SubMenu1Presenter.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/BoxWithBorder.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/MoveAnimator.hpp:
 
 generated/texts/include/texts/TextKeysAndLanguages.hpp:

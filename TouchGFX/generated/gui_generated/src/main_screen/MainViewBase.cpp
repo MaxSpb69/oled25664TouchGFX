@@ -3,7 +3,6 @@
 /*********************************************************************************/
 #include <gui_generated/main_screen/MainViewBase.hpp>
 #include <touchgfx/Color.hpp>
-#include <images/BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 
 MainViewBase::MainViewBase()
@@ -12,22 +11,32 @@ MainViewBase::MainViewBase()
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    tiledImage1.setBitmap(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_TEXTURES_SEAMLESS_TEXTURE_2_ID));
-    tiledImage1.setPosition(0, 0, 256, 64);
-    tiledImage1.setOffset(0, 0);
-    add(tiledImage1);
+    Menu_3_TextArea.setXY(166, 36);
+    Menu_3_TextArea.setColor(touchgfx::Color::getColorFromRGB(240, 233, 233));
+    Menu_3_TextArea.setLinespacing(0);
+    Menu_3_TextArea.setTypedText(touchgfx::TypedText(T___SINGLEUSE_ZF8W));
+    Menu_3_TextArea.setAlpha(96);
+    add(Menu_3_TextArea);
 
-    textArea1.setXY(5, 8);
-    textArea1.setColor(touchgfx::Color::getColorFromRGB(145, 102, 102));
+    Menu_1_TextArea.setXY(17, 18);
+    Menu_1_TextArea.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    Menu_1_TextArea.setLinespacing(0);
+    Menu_1_TextArea.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UC29));
+    Menu_1_TextArea.setAlpha(96);
+    add(Menu_1_TextArea);
+
+    Menu_2_TextArea.setXY(104, 27);
+    Menu_2_TextArea.setColor(touchgfx::Color::getColorFromRGB(240, 233, 233));
+    Menu_2_TextArea.setLinespacing(0);
+    Menu_2_TextArea.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JJU1));
+    Menu_2_TextArea.setAlpha(96);
+    add(Menu_2_TextArea);
+
+    textArea1.setXY(90, 0);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(230, 172, 172));
     textArea1.setLinespacing(0);
-    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_F0TJ));
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KWM7));
     add(textArea1);
-
-    textArea2.setXY(16, -76);
-    textArea2.setColor(touchgfx::Color::getColorFromRGB(219, 178, 178));
-    textArea2.setLinespacing(0);
-    textArea2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_L47D));
-    add(textArea2);
 }
 
 MainViewBase::~MainViewBase()
@@ -44,10 +53,55 @@ void MainViewBase::handleKeyEvent(uint8_t key)
 {
     if(49 == key)
     {
-        //To_Screen1_Interaction
-        //When hardware button 49 clicked change screen to Screen1
+        //MenuSelect_Interaction
+        //When hardware button 49 clicked call virtual function
+        //Call MenuSelect
+        MenuSelect();
+    
+    }
+
+    if(50 == key)
+    {
+        //MenuNext_Interaction
+        //When hardware button 50 clicked call virtual function
+        //Call MenuNext_Step
+        MenuNext_Step();
+    
+    }
+
+    if(51 == key)
+    {
+        //MenuPrev_Interaction
+        //When hardware button 51 clicked call virtual function
+        //Call MenuPrev_Step
+        MenuPrev_Step();
+    
+    }
+
+    if(1 == key)
+    {
+        //Menu_1_Interaction
+        //When hardware button 1 clicked change screen to SetValue
+        //Go to SetValue with screen transition towards West
+        application().gotoSetValueScreenCoverTransitionWest();
+    
+    }
+
+    if(2 == key)
+    {
+        //Menu_2_Interaction
+        //When hardware button 2 clicked change screen to Screen1
         //Go to Screen1 with screen transition towards West
         application().gotoScreen1ScreenCoverTransitionWest();
+    
+    }
+
+    if(3 == key)
+    {
+        //Interaction1
+        //When hardware button 3 clicked change screen to SubMenu1
+        //Go to SubMenu1 with screen transition towards West
+        application().gotoSubMenu1ScreenCoverTransitionWest();
     
     }
 }

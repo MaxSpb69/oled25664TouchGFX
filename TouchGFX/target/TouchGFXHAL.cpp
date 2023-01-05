@@ -25,6 +25,7 @@
 /* USER CODE BEGIN TouchGFXHAL.cpp */
 #include <F401_Buttons.hpp>
 #include <touchgfx/hal/OSWrappers.hpp>
+#include <../gui/include/gui/main_screen/MainView.hpp>
 
 extern "C" void touchgfxDisplayInit(void);
 extern "C" void touchgfxDisplayDriverTransmitBlock(const uint8_t* pixels, uint16_t x, uint16_t y, uint16_t w, uint16_t h);
@@ -202,6 +203,10 @@ void touchgfxSignalVSync(void)
   /* VSync has occurred, signal TouchGFX engine */
   touchgfx::OSWrappers::signalVSync();
 }
+
+
+
+
 /* USER CODE END TouchGFXHAL.cpp */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

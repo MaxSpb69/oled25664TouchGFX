@@ -25,8 +25,14 @@ public:
 
     void gotoMainScreenCoverTransitionEast();
 
+    // SetValue
+    void gotoSetValueScreenCoverTransitionWest();
+
     // Screen1
     void gotoScreen1ScreenCoverTransitionWest();
+
+    // SubMenu1
+    void gotoSubMenu1ScreenCoverTransitionWest();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
@@ -38,8 +44,14 @@ protected:
 
     void gotoMainScreenCoverTransitionEastImpl();
 
+    // SetValue
+    void gotoSetValueScreenCoverTransitionWestImpl();
+
     // Screen1
     void gotoScreen1ScreenCoverTransitionWestImpl();
+
+    // SubMenu1
+    void gotoSubMenu1ScreenCoverTransitionWestImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

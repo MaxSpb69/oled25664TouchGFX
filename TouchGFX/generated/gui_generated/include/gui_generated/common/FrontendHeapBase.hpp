@@ -16,8 +16,12 @@
 
 #include <gui/main_screen/MainView.hpp>
 #include <gui/main_screen/MainPresenter.hpp>
+#include <gui/setvalue_screen/SetValueView.hpp>
+#include <gui/setvalue_screen/SetValuePresenter.hpp>
 #include <gui/screen1_screen/Screen1View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
+#include <gui/submenu1_screen/SubMenu1View.hpp>
+#include <gui/submenu1_screen/SubMenu1Presenter.hpp>
 
 
 /**
@@ -41,8 +45,10 @@ public:
      * @note All view types used in the application MUST be added to this list!
      */
     typedef touchgfx::meta::TypeList< MainView,
+            touchgfx::meta::TypeList< SetValueView,
             touchgfx::meta::TypeList< Screen1View,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< SubMenu1View,
+            touchgfx::meta::Nil > > >
             > GeneratedViewTypes;
 
     /**
@@ -55,8 +61,10 @@ public:
      * @note All presenter types used in the application MUST be added to this list!
      */
     typedef touchgfx::meta::TypeList< MainPresenter,
+            touchgfx::meta::TypeList< SetValuePresenter,
             touchgfx::meta::TypeList< Screen1Presenter,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< SubMenu1Presenter,
+            touchgfx::meta::Nil > > >
             > GeneratedPresenterTypes;
 
     /**

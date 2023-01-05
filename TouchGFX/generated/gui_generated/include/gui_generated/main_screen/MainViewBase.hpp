@@ -8,7 +8,6 @@
 #include <mvp/View.hpp>
 #include <gui/main_screen/MainPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/TiledImage.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 
 class MainViewBase : public touchgfx::View<MainPresenter>
@@ -19,6 +18,22 @@ public:
     virtual void setupScreen();
     virtual void handleKeyEvent(uint8_t key);
 
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void MenuSelect()
+    {
+        // Override and implement this function in Main
+    }
+    virtual void MenuNext_Step()
+    {
+        // Override and implement this function in Main
+    }
+    virtual void MenuPrev_Step()
+    {
+        // Override and implement this function in Main
+    }
+
 protected:
     FrontendApplication& application() {
         return *static_cast<FrontendApplication*>(touchgfx::Application::getInstance());
@@ -28,9 +43,10 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::TiledImage tiledImage1;
+    touchgfx::TextArea Menu_3_TextArea;
+    touchgfx::TextArea Menu_1_TextArea;
+    touchgfx::TextArea Menu_2_TextArea;
     touchgfx::TextArea textArea1;
-    touchgfx::TextArea textArea2;
 
 private:
 

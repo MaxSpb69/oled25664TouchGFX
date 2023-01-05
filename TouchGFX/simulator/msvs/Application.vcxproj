@@ -27,6 +27,12 @@
     <ClCompile Include="..\..\gui\src\screen1_screen\Screen1Presenter.cpp"/>
     <ClCompile Include="..\..\gui\src\screen1_screen\Screen1View.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\screen1_screen\Screen1ViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\setvalue_screen\SetValuePresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\setvalue_screen\SetValueView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\setvalue_screen\SetValueViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\submenu1_screen\SubMenu1Presenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\submenu1_screen\SubMenu1View.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\submenu1_screen\SubMenu1ViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -183,6 +189,12 @@
     <ClInclude Include="..\..\gui\include\gui\screen1_screen\Screen1Presenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\screen1_screen\Screen1View.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen1_screen\Screen1ViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\setvalue_screen\SetValuePresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\setvalue_screen\SetValueView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\setvalue_screen\SetValueViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\submenu1_screen\SubMenu1Presenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\submenu1_screen\SubMenu1View.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\submenu1_screen\SubMenu1ViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>
